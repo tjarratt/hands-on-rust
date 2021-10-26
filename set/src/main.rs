@@ -43,6 +43,7 @@ impl<'a, T: PartialEq> Set<'a, T> {
     fn remove(&mut self, item: &T) {
         if let Some(index) = self.index_of(item) {
             self.elements[index] = self.elements[self.size - 1];
+            self.elements.remove(self.size - 1);
             self.size -= 1;
         }
     }
